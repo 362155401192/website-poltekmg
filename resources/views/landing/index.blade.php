@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
     <meta charset="UTF-8">
     <title>Politeknik Mitra Global</title>
@@ -8,10 +7,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 </head>
-
 <body>
 
-<<<<<<< HEAD
 {{-- ================= TOP BAR ================= --}}
 <div class="bg-primary text-white py-2 small">
     <div class="container d-flex justify-content-between align-items-center">
@@ -124,17 +121,10 @@
                 </div>
             </div>
             @endforeach
-=======
-    {{-- HERO --}}
-    <section class="bg-primary text-white text-center py-5">
-        <div class="container">
-            <h1 class="fw-bold">Politeknik Mitra Global</h1>
-            <p class="lead">Website resmi informasi akademik dan kegiatan kampus</p>
->>>>>>> fa2da189adbe7d41559c70a5867d244261ecc863
         </div>
-    </section>
+    </div>
+</section>
 
-<<<<<<< HEAD
 {{-- ================= BERITA ================= --}}
 <section id="berita" class="bg-light py-5">
     <div class="container">
@@ -158,68 +148,19 @@
                            class="btn btn-sm btn-primary">
                             Baca Selengkapnya
                         </a>
-=======
-    {{-- PROGRAM STUDI --}}
-    <section class="py-5">
-        <div class="container">
-            <h3 class="mb-4 text-center">Program Studi</h3>
-
-            <div class="row">
-                @foreach ($prodis as $prodi)
-                    <div class="col-md-4 mb-3">
-                        <div class="card h-100 shadow-sm">
-                            <div class="card-body">
-                                <h5>{{ $prodi->nama }}</h5>
-                                <small class="text-muted">{{ $prodi->kode }}</small>
-                                <p class="mt-2">{{ Str::limit($prodi->deskripsi, 100) }}</p>
-                            </div>
-                        </div>
->>>>>>> fa2da189adbe7d41559c70a5867d244261ecc863
                     </div>
-                @endforeach
+                </div>
             </div>
+            @endforeach
         </div>
-    </section>
+    </div>
+</section>
 
-<<<<<<< HEAD
 {{-- ================= FOOTER ================= --}}
 <footer class="bg-dark text-white text-center py-3">
     © {{ date('Y') }} Politeknik Mitra Global
 </footer>
-=======
-    {{-- BERITA --}}
-    <section class="bg-light py-5">
-        <div class="container">
-            <h3 class="mb-4 text-center">Berita Terbaru</h3>
-
-            <div class="row">
-                @foreach ($beritas as $berita)
-                    <div class="col-md-4 mb-3">
-                        <div class="card h-100 shadow-sm">
-                            <div class="card-body">
-                                <h6>{{ $berita->judul }}</h6>
-                                <small class="text-muted">
-                                    {{ $berita->created_at->format('d M Y') }}
-                                </small>
-                                <p class="mt-2">{{ Str::limit(strip_tags($berita->konten), 120) }}</p>
-
-                                <a href="{{ route('berita.detail', $berita->slug) }}" class="btn btn-sm btn-primary">
-                                    Baca Selengkapnya
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-        </div>
-    </section>
-
-    <footer class="bg-dark text-white text-center py-3">
-        © {{ date('Y') }} Politeknik Mitra Global
-    </footer>
->>>>>>> fa2da189adbe7d41559c70a5867d244261ecc863
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-
 </html>
