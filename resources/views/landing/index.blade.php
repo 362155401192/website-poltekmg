@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <title>Politeknik Mitra Global 2</title>
+    <title>Politeknik Mitra Global</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
@@ -86,7 +86,7 @@
                 </li>
             </ul>
 
-            <a href="#" class="btn btn-warning text-white fw-semibold px-4">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSedZeRdjNqHiqwzjlP6SfhMsz3JLrJkZfoEUkBM03KDPOWHJQ/viewform" class="btn btn-warning text-white fw-semibold px-4">
                 Pendaftaran
             </a>
         </div>
