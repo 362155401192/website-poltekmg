@@ -30,7 +30,6 @@
     {{-- ================= NAVBAR ================= --}}
     <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
         <div class="container">
-
             <a class="navbar-brand d-flex align-items-center" href="/">
                 <img src="{{ asset('logo.png') }}" height="45" class="me-2">
                 <strong>POLITEKNIK<br>MITRA GLOBAL</strong>
@@ -42,15 +41,10 @@
 
             <div class="collapse navbar-collapse" id="navbarMain">
                 <ul class="navbar-nav mx-auto gap-lg-3">
-
-                    <li class="nav-item">
-                        <a class="nav-link active" href="/">Home</a>
-                    </li>
+                    <li class="nav-item"><a class="nav-link active" href="/">Home</a></li>
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">
-                            Tentang Kami
-                        </a>
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">Tentang Kami</a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="#">Profil</a></li>
                             <li><a class="dropdown-item" href="#">Visi & Misi</a></li>
@@ -58,40 +52,19 @@
                     </li>
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">
-                            Program Studi
-                        </a>
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">Program Studi</a>
                         <ul class="dropdown-menu">
                             @foreach ($prodis as $prodi)
-                                <li>
-                                    <a class="dropdown-item" href="#">
-                                        {{ $prodi->nama }}
-                                    </a>
-                                </li>
+                                <li><a class="dropdown-item" href="#">{{ $prodi->nama }}</a></li>
                             @endforeach
                         </ul>
                     </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="#berita">Artikel Berita</a>
-                    </li>
-
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">
-                            Mitra Kerjasama
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Industri</a></li>
-                            <li><a class="dropdown-item" href="#">Akademik</a></li>
-                        </ul>
-                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#berita">Artikel Berita</a></li>
                 </ul>
 
-                <a href="#" class="btn btn-warning text-white fw-semibold px-4">
-                    Pendaftaran
-                </a>
+                <a href="#" class="btn btn-warning text-white fw-semibold px-4">Pendaftaran</a>
             </div>
-
         </div>
     </nav>
 
@@ -107,7 +80,6 @@
     <section class="py-5">
         <div class="container">
             <h3 class="mb-4 text-center">Program Studi</h3>
-
             <div class="row">
                 @foreach ($prodis as $prodi)
                     <div class="col-md-4 mb-3">
@@ -115,9 +87,7 @@
                             <div class="card-body">
                                 <h5>{{ $prodi->nama }}</h5>
                                 <small class="text-muted">{{ $prodi->kode }}</small>
-                                <p class="mt-2">
-                                    {{ Str::limit($prodi->deskripsi, 100) }}
-                                </p>
+                                <p class="mt-2">{{ Str::limit($prodi->deskripsi, 100) }}</p>
                             </div>
                         </div>
                     </div>
@@ -130,21 +100,16 @@
     <section id="berita" class="bg-light py-5">
         <div class="container">
             <h3 class="mb-4 text-center">Berita Terbaru</h3>
-
             <div class="row">
                 @foreach ($beritas as $berita)
                     <div class="col-md-4 mb-3">
                         <div class="card h-100 shadow-sm">
                             <div class="card-body">
                                 <h6>{{ $berita->judul }}</h6>
-                                <small class="text-muted">
-                                    {{ $berita->created_at->format('d M Y') }}
-                                </small>
-
+                                <small class="text-muted">{{ $berita->created_at->format('d M Y') }}</small>
                                 <p class="mt-2">
                                     {{ Str::limit(strip_tags($berita->konten), 120) }}
                                 </p>
-
                                 <a href="{{ route('berita.detail', $berita->slug) }}" class="btn btn-sm btn-primary">
                                     Baca Selengkapnya
                                 </a>
