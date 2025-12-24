@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <title>Website Jurusan</title>
+    <title>Politeknik Mitra Global</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
@@ -10,7 +10,7 @@
 {{-- HERO --}}
 <section class="bg-primary text-white text-center py-5">
     <div class="container">
-        <h1 class="fw-bold">Jurusan Bisnis dan Informatika</h1>
+        <h1 class="fw-bold">Politeknik Mitra Global</h1>
         <p class="lead">Website resmi informasi akademik dan kegiatan jurusan</p>
     </div>
 </section>
@@ -65,7 +65,7 @@
 </section>
 
 <footer class="bg-dark text-white text-center py-3">
-    © {{ date('Y') }} Jurusan Bisnis dan Informatika
+    © {{ date('Y') }} Politeknik Mitra Global
 </footer>
 
 </body>
