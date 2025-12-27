@@ -1,0 +1,30 @@
+/* ================= SPONSOR BERJALAN ================= */
+
+.sponsor-wrapper {
+    width: 100%;
+    overflow: hidden;
+    background: #f8f9fa;
+    padding: 20px 0;
+}
+
+.sponsor-track {
+    display: flex;
+    width: max-content;
+    gap: 60px;
+    animation: sponsorMove 20s linear infinite;
+}
+
+.sponsor-track img {
+    height: 60px;
+    object-fit: contain;
+}
+
+/* ANIMASI JALAN PASTI */
+@keyframes sponsorMove {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(-2000px);
+    }
+}

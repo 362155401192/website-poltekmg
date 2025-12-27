@@ -4,7 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Politeknik Mitra Global</title>
+    {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"> --}}
 
+    <!-- CSS KAMU -->
+    <link rel="stylesheet" href="{{ asset('resource/css/style.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 </head>
@@ -203,6 +206,74 @@
         </div>
     </section>
 
+    {{-- ================= DATA DOSEN ================= --}}
+    <section class="py-5">
+        <div class="container">
+            <h3 class="mb-4 text-center">Data Dosen & Pegawai</h3>
+
+            <!-- ROW CENTER -->
+            <div class="row justify-content-center g-4">
+
+                <!-- Dosen 1 -->
+                <div class="col-6 col-md-2">
+                    <div class="card h-100 shadow-sm text-center">
+                        <img src="image/pria.jpg" class="card-img-top" alt="Budi Santoso"
+                            style="height: 250px; object-fit: cover;">
+                        <div class="card-body">
+                            <h6 class="card-title mb-1">Budi Santoso, M.Kom</h6>
+                            <small class="text-muted d-block">NIDN: 0123456789</small>
+                            <p class="mb-1 mt-2"><strong>Jabatan:</strong> Dosen Agribisnis</p>
+                            <p class="text-muted mb-0">budi.santoso@kampus.ac.id</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dosen 2 -->
+                <div class="col-6 col-md-2">
+                    <div class="card h-100 shadow-sm text-center">
+                        <img src="image/wanita.jpg" class="card-img-top" alt="Siti Aminah"
+                            style="height: 250px; object-fit: cover;">
+                        <div class="card-body">
+                            <h6 class="card-title mb-1">Siti Aminah, M.T</h6>
+                            <small class="text-muted d-block">NIDN: 9876543210</small>
+                            <p class="mb-1 mt-2"><strong>Jabatan:</strong> Dosen Teknik Informatika</p>
+                            <p class="text-muted mb-0">siti.aminah@kampus.ac.id</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dosen 3 -->
+                <div class="col-6 col-md-2">
+                    <div class="card h-100 shadow-sm text-center">
+                        <img src="image/pria.jpg" class="card-img-top" alt="Ahmad Rizki"
+                            style="height: 250px; object-fit: cover;">
+                        <div class="card-body">
+                            <h6 class="card-title mb-1">Ahmad Rizki, M.Kom</h6>
+                            <small class="text-muted d-block">NIDN: 1122334455</small>
+                            <p class="mb-1 mt-2"><strong>Jabatan:</strong> Dosen Akuntansi</p>
+                            <p class="text-muted mb-0">ahmad.rizki@kampus.ac.id</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dosen 4 -->
+                <div class="col-6 col-md-2">
+                    <div class="card h-100 shadow-sm text-center">
+                        <img src="image/wanita.jpg" class="card-img-top" alt="Ninik Rahayu"
+                            style="height: 250px; object-fit: cover;">
+                        <div class="card-body">
+                            <h6 class="card-title mb-1">Ninik Rahayu, M.T</h6>
+                            <small class="text-muted d-block">NIDN: 98908987</small>
+                            <p class="mb-1 mt-2"><strong>Jabatan:</strong> Dosen Akuntansi</p>
+                            <p class="text-muted mb-0">ninik.rahayu@kampus.ac.id</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
     {{-- ================= BERITA ================= --}}
     <section id="berita" class="bg-light py-5">
         <div class="container">
@@ -232,6 +303,71 @@
             </div>
         </div>
     </section>
+
+    <style>
+        .sponsor-wrapper {
+            width: 100%;
+            overflow: hidden;
+            background: #f8f9fa;
+            padding: 25px 0;
+        }
+
+        .sponsor-track {
+            display: flex;
+            gap: 60px;
+            width: max-content;
+            animation: sponsorLoop 25s linear infinite;
+        }
+
+        .sponsor-track img {
+            height: 60px;
+            object-fit: contain;
+        }
+
+        @keyframes sponsorLoop {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+    </style>
+    {{-- ================= SPONSOR DAN MITRA ================= --}}
+    <section class="py-5 bg-light overflow-hidden">
+        <div class="container">
+            <h3 class="mb-4 text-center">Sponsor & Mitra</h3>
+        </div>
+
+        <div class="sponsor-wrapper">
+            <div class="sponsor-track">
+                <!-- SET 1 -->
+                <img src="image/kemenaker.png">
+                <img src="image/ayuprinting.jpg">
+                <img src="image/BNI.png">
+                <img src="image/kahyangan.jpg">
+                <img src="image/fifgrup.jpg">
+                <img src="image/elhotel.png">
+                <img src="image/mnclogo.png">
+                <img src="image/sidomuncul.png">
+                <img src="image/BAIK.jpg">
+
+                <!-- SET 2 (DUPLIKAT WAJIB) -->
+                <img src="image/kemenaker.png">
+                <img src="image/ayuprinting.jpg">
+                <img src="image/BNI.png">
+                <img src="image/kahyangan.jpg">
+                <img src="image/fifgrup.jpg">
+                <img src="image/elhotel.png">
+                <img src="image/mnclogo.png">
+                <img src="image/sidomuncul.png">
+                <img src="image/BAIK.jpg">
+            </div>
+        </div>
+    </section>
+
+
 
     {{-- ================= LOKASI & KONTAK ================= --}}
     <section id="kontak" class="py-5 bg-light">
@@ -273,8 +409,6 @@
             </div>
         </div>
     </section>
-
-
 
     {{-- ================= FOOTER ================= --}}
     <footer class="bg-dark text-white pt-5 pb-3">
