@@ -131,56 +131,113 @@
         }
     </style>
 
-
-    {{-- ================= TENTANG KAMI ================= --}}
+    <!-- ================= TENTANG KAMI ================= -->
     <section id="tentang-kami" class="py-5">
         <div class="container">
             <div class="row align-items-center">
 
-                {{-- TEKS --}}
+                <!-- TEKS -->
                 <div class="col-md-6 mb-4 mb-md-0">
                     <h3 class="fw-bold mb-3">Tentang Kami</h3>
                     <p class="text-muted">
                         <strong>Politeknik Mitra Global</strong> adalah institusi pendidikan tinggi
-                        vokasi yang berfokus pada pengembangan keterampilan dan kompetensi mahasiswa
-                        agar siap menghadapi dunia kerja dan industri.
+                        vokasi yang berfokus pada pengembangan keterampilan dan kompetensi mahasiswa.
                     </p>
 
                     <p class="text-muted">
-                        Kami berkomitmen untuk menyelenggarakan pendidikan berkualitas,
-                        didukung oleh tenaga pengajar profesional, kurikulum berbasis industri,
-                        serta kerja sama dengan berbagai mitra strategis.
+                        Kami berkomitmen menyelenggarakan pendidikan berbasis praktik dan industri.
                     </p>
 
                     <ul class="list-unstyled">
                         <li class="mb-2">
                             <i class="bi bi-check-circle-fill text-primary"></i>
-                            Pendidikan berbasis praktik & industri
+                            Pendidikan berbasis praktik
                         </li>
                         <li class="mb-2">
                             <i class="bi bi-check-circle-fill text-primary"></i>
-                            Dosen berpengalaman & profesional
+                            Dosen profesional
                         </li>
                         <li class="mb-2">
                             <i class="bi bi-check-circle-fill text-primary"></i>
-                            Kerja sama dengan dunia usaha & dunia industri
+                            Kerja sama industri
                         </li>
                     </ul>
 
-                    <a href="#kontak" class="btn btn-primary mt-3">
-                        Hubungi Kami
-                    </a>
+                    <!-- BUTTON MODAL -->
+                    <button type="button" class="btn btn-primary mt-3" data-bs-toggle="modal"
+                        data-bs-target="#modalTentangKami">
+                        Baca Selengkapnya
+                    </button>
                 </div>
 
-                {{-- GAMBAR --}}
+                <!-- GAMBAR -->
                 <div class="col-md-6 text-center">
-                    <img src="{{ asset('image/pmg1.jpeg') }}" alt="Politeknik Mitra Global"
-                        class="img-fluid rounded shadow">
+                    <img src="image/pmg1.jpeg" alt="Politeknik Mitra Global" class="img-fluid rounded shadow">
                 </div>
 
             </div>
         </div>
     </section>
+
+    <!-- ================= MODAL TENTANG KAMI ================= -->
+    <div class="modal fade" id="modalTentangKami" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold">Tentang Politeknik Mitra Global</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="row align-items-center">
+
+                        <!-- GAMBAR -->
+                        <div class="col-md-5 mb-3 mb-md-0 text-center">
+                            <img src="image/pmg1.jpeg" alt="Politeknik Mitra Global"
+                                class="img-fluid rounded shadow">
+                        </div>
+
+                        <!-- TEKS -->
+                        <div class="col-md-7">
+                            <p>
+                                <strong>Politeknik Mitra Global</strong> merupakan perguruan tinggi
+                                vokasi yang fokus pada pendidikan berbasis praktik dan industri.
+                            </p>
+
+                            <p>
+                                Didukung oleh dosen profesional, kurikulum adaptif,
+                                serta kerja sama luas dengan mitra industri.
+                            </p>
+
+                            <p>
+                                VISI :
+                            </p>
+
+                            <p>
+                                MISI :
+                            </p>
+
+                            <ul>
+                                <li>Pendidikan berbasis praktik</li>
+                                <li>Tenaga pengajar profesional</li>
+                                <li>Kerja sama dunia industri</li>
+                                <li>Program magang & penyaluran kerja</li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" data-bs-dismiss="modal">
+                        Tutup
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
 
 
     {{-- ================= PROGRAM STUDI ================= --}}

@@ -41,6 +41,9 @@
                     <li class="nav-item">
                         <a href="{{ route('admin.prestasi.index') }}" class="nav-link">🏆 Prestasi</a>
                     </li>
+                    <li class="nav-item">
+                        <a href="{{ route('admin.dosen.index') }}" class="nav-link">🏆 Data Dosen</a>
+                    </li>
                 </ul>
             </aside>
 
