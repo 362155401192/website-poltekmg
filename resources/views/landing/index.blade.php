@@ -54,7 +54,7 @@
                         </li>
 
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">
+                            <a class="nav-link active" href="#tentang-kami">
                                 Tentang Kami
                             </a>
                             {{-- <ul class="dropdown-menu">
@@ -83,7 +83,7 @@
                         </li>
 
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">
+                            <a class="nav-link active" href="#kerjasama">
                                 Mitra Kerjasama
                             </a>
                             {{-- <ul class="dropdown-menu">
@@ -334,8 +334,9 @@
             }
         }
     </style>
+
     {{-- ================= SPONSOR DAN MITRA ================= --}}
-    <section class="py-5 bg-light overflow-hidden">
+    <section id="kerjasama" class="py-5 bg-light overflow-hidden">
         <div class="container">
             <h3 class="mb-4 text-center">Sponsor & Mitra</h3>
         </div>
