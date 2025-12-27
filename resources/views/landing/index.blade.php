@@ -57,10 +57,10 @@
                             <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">
                                 Tentang Kami
                             </a>
-                            <ul class="dropdown-menu">
+                            {{-- <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="#">Profil</a></li>
                                 <li><a class="dropdown-item" href="#">Visi & Misi</a></li>
-                            </ul>
+                            </ul> --}}
                         </li>
 
                         <li class="nav-item dropdown">
@@ -86,10 +86,10 @@
                             <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">
                                 Mitra Kerjasama
                             </a>
-                            <ul class="dropdown-menu">
+                            {{-- <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="#">Industri</a></li>
                                 <li><a class="dropdown-item" href="#">Akademik</a></li>
-                            </ul>
+                            </ul> --}}
                         </li>
                     </ul>
 
