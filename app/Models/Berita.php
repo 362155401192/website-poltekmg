@@ -11,7 +11,7 @@ class Berita extends Model
         'slug',
         'konten',
         'thumbnail',
+        'foto',
         'tanggal',
     ];
 }
-

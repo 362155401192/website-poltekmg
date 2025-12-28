@@ -247,12 +247,25 @@
 
             <div class="row">
                 @foreach ($prodis as $prodi)
-                    <div class="col-md-4 mb-3">
+                    <div class="col-md-4 mb-4">
                         <div class="card h-100 shadow-sm">
-                            <div class="card-body">
-                                <h5>{{ $prodi->nama }}</h5>
-                                <small class="text-muted">{{ $prodi->kode }}</small>
-                                <p class="mt-2">
+
+                            {{-- FOTO PRODI --}}
+                            @if ($prodi->foto)
+                                <img src="{{ asset('storage/' . $prodi->foto) }}" class="card-img-top"
+                                    alt="{{ $prodi->nama }}" style="height: 200px; object-fit: cover;">
+                            @else
+                                <img src="{{ asset('image/default-prodi.jpg') }}" class="card-img-top" alt="Default"
+                                    style="height: 200px; object-fit: cover;">
+                            @endif
+
+                            <div class="card-body text-center">
+                                <h5 class="fw-bold">{{ $prodi->nama }}</h5>
+                                <small class="text-muted d-block mb-2">
+                                    {{ $prodi->kode }}
+                                </small>
+
+                                <p class="text-muted">
                                     {{ Str::limit($prodi->deskripsi, 100) }}
                                 </p>
                             </div>
@@ -262,6 +275,7 @@
             </div>
         </div>
     </section>
+
 
     {{-- ================= DATA DOSEN ================= --}}
     <section class="py-5">
@@ -337,11 +351,18 @@
             <h3 class="mb-4 text-center">Berita Terbaru</h3>
 
             <div class="row">
-                @foreach ($beritas as $berita)
+                @forelse ($beritas as $berita)
                     <div class="col-md-4 mb-3">
                         <div class="card h-100 shadow-sm">
+
+                            {{-- FOTO BERITA --}}
+                            <img src="{{ $berita->foto ? asset('storage/' . $berita->foto) : asset('no-image.png') }}"
+                                class="card-img-top" alt="{{ $berita->judul }}"
+                                style="height:200px; object-fit:cover;">
+
                             <div class="card-body">
                                 <h6>{{ $berita->judul }}</h6>
+
                                 <small class="text-muted">
                                     {{ $berita->created_at->format('d M Y') }}
                                 </small>
@@ -356,7 +377,11 @@
                             </div>
                         </div>
                     </div>
-                @endforeach
+                @empty
+                    <div class="col-12 text-center">
+                        <p class="text-muted">Belum ada berita terbaru.</p>
+                    </div>
+                @endforelse
             </div>
         </div>
     </section>
@@ -435,8 +460,11 @@
                 <div class="col-md-6 mb-4">
                     <h4 class="fw-bold mb-3">Lokasi Kampus</h4>
                     <div class="ratio ratio-16x9 shadow rounded">
-                        <iframe src="https://www.google.com/maps?q=-8.471530,114.201931&hl=id&z=16&output=embed"
-                            style="border:0;" allowfullscreen loading="lazy">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3946.4812169470288!2d114.23088917477361!3d-8.452494591587609!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd3ff18589fe8e1%3A0x876467b0a8d793f3!2sPoliteknik%20Mitra%20Global!5e0!3m2!1sid!2sid!4v1766936811162!5m2!1sid!2sid"
+                            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe> style="border:0;" allowfullscreen
+                        loading="lazy">
                         </iframe>
                     </div>
                 </div>

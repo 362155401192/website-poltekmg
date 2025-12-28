@@ -10,6 +10,6 @@ class Prodi extends Model
         'kode',
         'nama',
         'deskripsi',
+        'foto',
     ];
 }
-
