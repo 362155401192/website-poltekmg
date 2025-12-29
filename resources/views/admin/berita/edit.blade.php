@@ -13,7 +13,9 @@
 </div>
 @endif
 
-<form action="{{ route('admin.berita.update', $berita) }}" method="POST">
+<form action="{{ route('admin.berita.update', $berita) }}"
+      method="POST"
+      enctype="multipart/form-data">
     @csrf
     @method('PUT')
 
@@ -21,6 +23,25 @@
         <label class="form-label">Judul Berita</label>
         <input type="text" name="judul" class="form-control"
                value="{{ old('judul', $berita->judul) }}" required>
+    </div>
+
+    {{-- Foto lama --}}
+    <div class="mb-3">
+        <label class="form-label">Foto Saat Ini</label><br>
+        @if ($berita->foto)
+            <img src="{{ asset('storage/berita/'.$berita->foto) }}"
+                 class="img-thumbnail mb-2"
+                 width="200">
+        @else
+            <p class="text-muted">Belum ada foto</p>
+        @endif
+    </div>
+
+    {{-- Upload foto baru --}}
+    <div class="mb-3">
+        <label class="form-label">Ganti Foto</label>
+        <input type="file" name="foto" class="form-control" accept="image/*">
+        <small class="text-muted">Kosongkan jika tidak ingin mengganti foto</small>
     </div>
 
     <div class="mb-3">

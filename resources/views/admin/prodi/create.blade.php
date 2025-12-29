@@ -13,7 +13,7 @@
 </div>
 @endif
 
-<form action="{{ route('admin.prodi.store') }}" method="POST">
+<form action="{{ route('admin.prodi.store') }}" method="POST" enctype="multipart/form-data">
     @csrf
 
     <div class="mb-3">
@@ -31,6 +31,16 @@
     <div class="mb-3">
         <label class="form-label">Deskripsi</label>
         <textarea name="deskripsi" rows="4" class="form-control">{{ old('deskripsi') }}</textarea>
+    </div>
+
+    {{-- FOTO --}}
+    <div class="mb-3">
+        <label class="form-label">Foto Program Studi</label>
+        <input type="file" name="foto" class="form-control"
+               accept="image/*">
+        <small class="text-muted">
+            Format: JPG, PNG | Maks 2MB
+        </small>
     </div>
 
     <button class="btn btn-primary">Simpan</button>

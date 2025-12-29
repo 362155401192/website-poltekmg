@@ -13,13 +13,19 @@
 </div>
 @endif
 
-<form action="{{ route('admin.berita.store') }}" method="POST">
+<form action="{{ route('admin.berita.store') }}" method="POST" enctype="multipart/form-data">
     @csrf
 
     <div class="mb-3">
         <label class="form-label">Judul Berita</label>
         <input type="text" name="judul" class="form-control"
                value="{{ old('judul') }}" required>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Foto Berita</label>
+        <input type="file" name="foto" class="form-control" accept="image/*">
+        <small class="text-muted">Format: jpg, png, jpeg</small>
     </div>
 
     <div class="mb-3">

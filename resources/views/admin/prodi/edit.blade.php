@@ -13,7 +13,9 @@
 </div>
 @endif
 
-<form action="{{ route('admin.prodi.update', $prodi) }}" method="POST">
+<form action="{{ route('admin.prodi.update', $prodi) }}"
+      method="POST"
+      enctype="multipart/form-data">
     @csrf
     @method('PUT')
 
@@ -32,6 +34,25 @@
     <div class="mb-3">
         <label class="form-label">Deskripsi</label>
         <textarea name="deskripsi" rows="4" class="form-control">{{ old('deskripsi', $prodi->deskripsi) }}</textarea>
+    </div>
+
+    {{-- FOTO --}}
+    <div class="mb-3">
+        <label class="form-label">Foto Program Studi</label>
+
+        @if($prodi->foto)
+            <div class="mb-2">
+                <img src="{{ asset('storage/' . $prodi->foto) }}"
+                     alt="{{ $prodi->nama }}"
+                     width="120"
+                     class="img-thumbnail">
+            </div>
+        @endif
+
+        <input type="file" name="foto" class="form-control" accept="image/*">
+        <small class="text-muted">
+            Kosongkan jika tidak ingin mengganti foto
+        </small>
     </div>
 
     <button class="btn btn-primary">Update</button>

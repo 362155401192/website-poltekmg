@@ -37,7 +37,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
         <div class="container">
 
-            <<a class="navbar-brand d-flex align-items-center">
+            <a class="navbar-brand d-flex align-items-center">
                 <img src="{{ asset('image/logo.png') }}" height="45" class="me-2" alt="Logo">
                 <strong>POLITEKNIK<br>MITRA GLOBAL</strong>
                 </a>
@@ -249,19 +249,38 @@
                 @foreach ($prodis as $prodi)
                     <div class="col-md-4 mb-3">
                         <div class="card h-100 shadow-sm">
+
+                            {{-- FOTO DARI ADMIN --}}
+                            @if($prodi->foto)
+                                <img
+                                    src="{{ asset('storage/' . $prodi->foto) }}"
+                                    class="card-img-top"
+                                    alt="{{ $prodi->nama }}"
+                                    style="height:220px; object-fit:cover;">
+                            @else
+                                <div class="d-flex align-items-center justify-content-center bg-light"
+                                    style="height:220px;">
+                                    <span class="text-muted">Foto belum tersedia</span>
+                                </div>
+                            @endif
+
                             <div class="card-body">
-                                <h5>{{ $prodi->nama }}</h5>
+                                <h5 class="card-title">{{ $prodi->nama }}</h5>
                                 <small class="text-muted">{{ $prodi->kode }}</small>
+
                                 <p class="mt-2">
                                     {{ Str::limit($prodi->deskripsi, 100) }}
                                 </p>
                             </div>
+
                         </div>
                     </div>
                 @endforeach
             </div>
         </div>
     </section>
+
+
 
     {{-- ================= DATA DOSEN ================= --}}
     <section class="py-5">
@@ -277,9 +296,9 @@
                         <img src="image/pria.jpg" class="card-img-top" alt="Budi Santoso"
                             style="height: 250px; object-fit: cover;">
                         <div class="card-body">
-                            <h6 class="card-title mb-1">Budi Santoso, M.Kom</h6>
+                            <h6 class="card-title mb-1">Budi Santoso, S.Kom.,M.Kom</h6>
                             <small class="text-muted d-block">NIDN: 0123456789</small>
-                            <p class="mb-1 mt-2"><strong>Jabatan:</strong> Dosen Agribisnis</p>
+                            <p class="mb-1 mt-2"><strong>Jabatan:</strong> Dosen Teknik Infromatika</p>
                             <p class="text-muted mb-0">budi.santoso@kampus.ac.id</p>
                         </div>
                     </div>
@@ -338,10 +357,25 @@
 
             <div class="row">
                 @foreach ($beritas as $berita)
-                    <div class="col-md-4 mb-3">
+                    <div class="col-md-4 mb-4">
                         <div class="card h-100 shadow-sm">
+
+                            {{-- Foto Berita --}}
+                            @if ($berita->foto)
+                                <img src="{{ asset('storage/'.$berita->foto) }}"
+                                    class="card-img-top"
+                                    style="height:200px; object-fit:cover;"
+                                    alt="{{ $berita->judul }}">
+                            @else
+                                <div class="d-flex align-items-center justify-content-center bg-light"
+                                    style="height:220px;">
+                                    <span class="text-muted">Foto belum tersedia</span>
+                                </div>
+                            @endif
+
                             <div class="card-body">
-                                <h6>{{ $berita->judul }}</h6>
+                                <h6 class="card-title">{{ $berita->judul }}</h6>
+
                                 <small class="text-muted">
                                     {{ $berita->created_at->format('d M Y') }}
                                 </small>
@@ -350,7 +384,8 @@
                                     {{ Str::limit(strip_tags($berita->konten), 120) }}
                                 </p>
 
-                                <a href="{{ route('berita.detail', $berita->slug) }}" class="btn btn-sm btn-primary">
+                                <a href="{{ route('berita.detail', $berita->slug) }}"
+                                class="btn btn-sm btn-primary">
                                     Baca Selengkapnya
                                 </a>
                             </div>
@@ -360,6 +395,7 @@
             </div>
         </div>
     </section>
+
 
     <style>
         .sponsor-wrapper {

@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProdiController;
 use App\Http\Controllers\Admin\BeritaController;
 use App\Http\Controllers\Admin\PrestasiController;
+use App\Http\Controllers\Admin\DosenController;
 use App\Http\Controllers\LandingController;
 
 Route::get('/', function () {
@@ -31,6 +32,7 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::resource('prodi', ProdiController::class);
     Route::resource('berita', BeritaController::class);
     Route::resource('prestasi', PrestasiController::class);
+    Route::resource('dosen', DosenController::class);
 });
 
 Route::get('/', [LandingController::class, 'index'])->name('landing');
