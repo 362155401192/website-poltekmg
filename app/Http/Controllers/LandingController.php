@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Prodi;
 use App\Models\Berita;
+use App\Models\Prestasi;
 
 class LandingController extends Controller
 {
@@ -20,4 +21,3 @@ class LandingController extends Controller
         return view('landing.berita-detail', compact('berita'));
     }
 }
-

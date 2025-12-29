@@ -280,7 +280,7 @@
     {{-- ================= DATA DOSEN ================= --}}
     <section class="py-5">
         <div class="container">
-            <h3 class="mb-4 text-center">Data Dosen & Pegawai</h3>
+            <h3 class="mb-4 text-center">Kaprodi Politeknik Mitra Global</h3>
 
             <!-- ROW CENTER -->
             <div class="row justify-content-center g-4">
@@ -288,13 +288,12 @@
                 <!-- Dosen 1 -->
                 <div class="col-6 col-md-2">
                     <div class="card h-100 shadow-sm text-center">
-                        <img src="image/pria.jpg" class="card-img-top" alt="Budi Santoso"
+                        <img src="image/lt.png" class="card-img-top" alt="Lulus Triyaningsih, S.Pd, M.M."
                             style="height: 250px; object-fit: cover;">
                         <div class="card-body">
-                            <h6 class="card-title mb-1">Budi Santoso, M.Kom</h6>
-                            <small class="text-muted d-block">NIDN: 0123456789</small>
-                            <p class="mb-1 mt-2"><strong>Jabatan:</strong> Dosen Agribisnis</p>
-                            <p class="text-muted mb-0">budi.santoso@kampus.ac.id</p>
+                            <h6 class="card-title mb-1">Lulus Triyaningsih, S.Pd, M.M.</h6>
+                            <p class="mb-1 mt-2"><strong>Jabatan:</strong> Kaprodi Akutansi</p>
+                            <p class="text-muted mb-0">lulus.t@kampus.ac.id</p>
                         </div>
                     </div>
                 </div>
@@ -302,13 +301,12 @@
                 <!-- Dosen 2 -->
                 <div class="col-6 col-md-2">
                     <div class="card h-100 shadow-sm text-center">
-                        <img src="image/wanita.jpg" class="card-img-top" alt="Siti Aminah"
+                        <img src="image/ib.jpg" class="card-img-top" alt="Ida Bagus Prima Widyanta, S.Kom, M.M."
                             style="height: 250px; object-fit: cover;">
                         <div class="card-body">
-                            <h6 class="card-title mb-1">Siti Aminah, M.T</h6>
-                            <small class="text-muted d-block">NIDN: 9876543210</small>
-                            <p class="mb-1 mt-2"><strong>Jabatan:</strong> Dosen Teknik Informatika</p>
-                            <p class="text-muted mb-0">siti.aminah@kampus.ac.id</p>
+                            <h6 class="card-title mb-1">Ida Bagus Prima Widyanta, S.Kom, M.M.</h6>
+                            <p class="mb-1 mt-2"><strong>Jabatan:</strong> Kaprodi Teknik Informatika</p>
+                            <p class="text-muted mb-0">idabagus.pw@kampus.ac.id</p>
                         </div>
                     </div>
                 </div>
@@ -316,31 +314,15 @@
                 <!-- Dosen 3 -->
                 <div class="col-6 col-md-2">
                     <div class="card h-100 shadow-sm text-center">
-                        <img src="image/pria.jpg" class="card-img-top" alt="Ahmad Rizki"
+                        <img src="image/aa.jpg" class="card-img-top" alt="Antonius Ali, S.P., M.P, CLSSGB, IPP."
                             style="height: 250px; object-fit: cover;">
                         <div class="card-body">
-                            <h6 class="card-title mb-1">Ahmad Rizki, M.Kom</h6>
-                            <small class="text-muted d-block">NIDN: 1122334455</small>
-                            <p class="mb-1 mt-2"><strong>Jabatan:</strong> Dosen Akuntansi</p>
-                            <p class="text-muted mb-0">ahmad.rizki@kampus.ac.id</p>
+                            <h6 class="card-title mb-1">Antonius Ali, S.P., M.P, CLSSGB, IPP.</h6>
+                            <p class="mb-1 mt-2"><strong>Jabatan:</strong> Kaprodi Agribisnis</p>
+                            <p class="text-muted mb-0">antonius.ali@kampus.ac.id</p>
                         </div>
                     </div>
                 </div>
-
-                <!-- Dosen 4 -->
-                <div class="col-6 col-md-2">
-                    <div class="card h-100 shadow-sm text-center">
-                        <img src="image/wanita.jpg" class="card-img-top" alt="Ninik Rahayu"
-                            style="height: 250px; object-fit: cover;">
-                        <div class="card-body">
-                            <h6 class="card-title mb-1">Ninik Rahayu, M.T</h6>
-                            <small class="text-muted d-block">NIDN: 98908987</small>
-                            <p class="mb-1 mt-2"><strong>Jabatan:</strong> Dosen Akuntansi</p>
-                            <p class="text-muted mb-0">ninik.rahayu@kampus.ac.id</p>
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </div>
     </section>
