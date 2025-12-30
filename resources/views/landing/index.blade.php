@@ -64,7 +64,7 @@
                         </li>
 
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">
+                            <a class="nav-link active dropdown-toggle" data-bs-toggle="dropdown" href="#">
                                 Program Studi
                             </a>
                             <ul class="dropdown-menu">
@@ -79,7 +79,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="#berita">Artikel Berita</a>
+                            <a class="nav-link active" href="#berita">Artikel Berita</a>
                         </li>
 
                         <li class="nav-item dropdown">
