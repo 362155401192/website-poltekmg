@@ -24,80 +24,76 @@ class BeritaController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'judul' => 'required|string|max:255',
-            'konten' => 'required',
-            'foto' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+            'judul'     => 'required|string|max:255',
+            'thumbnail' => 'nullable|string|max:255', // TEKS
+            'konten'    => 'required|string',
+            'foto'      => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
         ]);
 
-        $fotoName = null;
-
+        $fotoPath = null;
         if ($request->hasFile('foto')) {
-            $fotoName = time() . '.' . $request->foto->extension();
-            $request->foto->storeAs('public/berita', $fotoName);
+            $fotoPath = $request->file('foto')->store('berita', 'public');
         }
 
         Berita::create([
-            'judul' => $request->judul,
-            'slug' => Str::slug($request->judul),
-            'konten' => $request->konten,
-            'foto' => $fotoName,
-            'tanggal' => now(),
+            'judul'     => $request->judul,
+            'slug'      => Str::slug($request->judul),
+            'thumbnail' => $request->thumbnail, // TEKS
+            'konten'    => $request->konten,
+            'foto'      => $fotoPath, // PATH FILE
+            'tanggal'   => now(),
         ]);
 
-        return redirect()
-            ->route('admin.berita.index')
-            ->with('success', 'Berita ditambahkan');
+        return redirect()->route('admin.berita.index')
+            ->with('success', 'Berita berhasil ditambahkan');
     }
 
-    public function edit(Berita $beritum)
+    public function edit(Berita $berita)
     {
-        return view('admin.berita.edit', [
-            'berita' => $beritum
-        ]);
+        return view('admin.berita.edit', compact('berita'));
     }
 
-    public function update(Request $request, Berita $beritum)
+    public function update(Request $request, Berita $berita)
     {
         $request->validate([
-            'judul' => 'required|string|max:255',
-            'konten' => 'required',
-            'foto' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+            'judul'     => 'required|string|max:255',
+            'thumbnail' => 'nullable|string|max:255',
+            'konten'    => 'required|string',
+            'foto'      => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
         ]);
 
-        // Jika upload foto baru
         if ($request->hasFile('foto')) {
-
-            // hapus foto lama
-            if ($beritum->foto && Storage::exists('public/berita/' . $beritum->foto)) {
-                Storage::delete('public/berita/' . $beritum->foto);
+            if ($berita->foto) {
+                Storage::disk('public')->delete($berita->foto);
             }
-
-            $fotoName = time() . '.' . $request->foto->extension();
-            $request->foto->storeAs('public/berita', $fotoName);
-
-            $beritum->foto = $fotoName;
+            $berita->foto = $request->file('foto')->store('berita', 'public');
         }
 
-        $beritum->update([
-            'judul' => $request->judul,
-            'slug' => Str::slug($request->judul),
-            'konten' => $request->konten,
+        $berita->update([
+            'judul'     => $request->judul,
+            'slug'      => Str::slug($request->judul),
+            'thumbnail' => $request->thumbnail,
+            'konten'    => $request->konten,
+            'foto'      => $berita->foto,
         ]);
 
-        return redirect()
-            ->route('admin.berita.index')
-            ->with('success', 'Berita diupdate');
+        return redirect()->route('admin.berita.index')
+            ->with('success', 'Berita berhasil diupdate');
     }
 
-    public function destroy(Berita $beritum)
+    public function destroy(Berita $berita)
     {
-        // hapus foto dari storage
-        if ($beritum->foto && Storage::exists('public/berita/' . $beritum->foto)) {
-            Storage::delete('public/berita/' . $beritum->foto);
+        if ($berita->foto) {
+            Storage::disk('public')->delete($berita->foto);
         }
 
-        $beritum->delete();
+        $berita->delete();
+        return back()->with('success', 'Berita berhasil dihapus');
+    }
 
-        return back()->with('success', 'Berita dihapus');
+    public function home()
+    {
+        $beritas = Berita::latest()->get();
+        return view('home', compact('beritas'));
     }
 }

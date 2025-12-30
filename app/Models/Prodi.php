@@ -11,5 +11,6 @@ class Prodi extends Model
         'nama',
         'deskripsi',
         'foto', // ⬅️ tambahkan ini
+        'foto',
     ];
 }

@@ -38,8 +38,7 @@ class ProdiController extends Controller
 
         Prodi::create($data);
 
-        return redirect()
-            ->route('admin.prodi.index')
+        return redirect()->route('admin.prodi.index')
             ->with('success', 'Prodi berhasil ditambahkan');
     }
 
@@ -59,7 +58,7 @@ class ProdiController extends Controller
 
         $data = $request->only(['kode', 'nama', 'deskripsi']);
 
-        // jika upload foto baru
+        // kalau upload foto baru
         if ($request->hasFile('foto')) {
 
             // hapus foto lama
@@ -72,14 +71,13 @@ class ProdiController extends Controller
 
         $prodi->update($data);
 
-        return redirect()
-            ->route('admin.prodi.index')
+        return redirect()->route('admin.prodi.index')
             ->with('success', 'Prodi berhasil diupdate');
     }
 
     public function destroy(Prodi $prodi)
     {
-        // hapus foto dari storage
+        // hapus foto
         if ($prodi->foto && Storage::disk('public')->exists($prodi->foto)) {
             Storage::disk('public')->delete($prodi->foto);
         }

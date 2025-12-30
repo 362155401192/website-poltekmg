@@ -23,14 +23,16 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
 
 
 Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     Route::resource('prodi', ProdiController::class);
-    Route::resource('berita', BeritaController::class);
+    Route::resource('berita', BeritaController::class)
+        ->parameters(['berita' => 'berita']);
+
     Route::resource('prestasi', PrestasiController::class);
     Route::resource('dosen', DosenController::class);
 });

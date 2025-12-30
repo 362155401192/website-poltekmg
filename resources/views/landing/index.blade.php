@@ -247,32 +247,28 @@
 
             <div class="row">
                 @foreach ($prodis as $prodi)
-                    <div class="col-md-4 mb-3">
+                    <div class="col-md-4 mb-4">
                         <div class="card h-100 shadow-sm">
 
-                            {{-- FOTO DARI ADMIN --}}
-                            @if($prodi->foto)
-                                <img
-                                    src="{{ asset('storage/' . $prodi->foto) }}"
-                                    class="card-img-top"
-                                    alt="{{ $prodi->nama }}"
-                                    style="height:220px; object-fit:cover;">
+                            {{-- FOTO PRODI --}}
+                            @if ($prodi->foto)
+                                <img src="{{ asset('storage/' . $prodi->foto) }}" class="card-img-top"
+                                    alt="{{ $prodi->nama }}" style="height: 200px; object-fit: cover;">
                             @else
-                                <div class="d-flex align-items-center justify-content-center bg-light"
-                                    style="height:220px;">
-                                    <span class="text-muted">Foto belum tersedia</span>
-                                </div>
+                                <img src="{{ asset('image/default-prodi.jpg') }}" class="card-img-top" alt="Default"
+                                    style="height: 200px; object-fit: cover;">
                             @endif
 
-                            <div class="card-body">
-                                <h5 class="card-title">{{ $prodi->nama }}</h5>
-                                <small class="text-muted">{{ $prodi->kode }}</small>
+                            <div class="card-body text-center">
+                                <h5 class="fw-bold">{{ $prodi->nama }}</h5>
+                                <small class="text-muted d-block mb-2">
+                                    {{ $prodi->kode }}
+                                </small>
 
-                                <p class="mt-2">
+                                <p class="text-muted">
                                     {{ Str::limit($prodi->deskripsi, 100) }}
                                 </p>
                             </div>
-
                         </div>
                     </div>
                 @endforeach
@@ -281,11 +277,10 @@
     </section>
 
 
-
     {{-- ================= DATA DOSEN ================= --}}
     <section class="py-5">
         <div class="container">
-            <h3 class="mb-4 text-center">Data Dosen & Pegawai</h3>
+            <h3 class="mb-4 text-center">Kaprodi Politeknik Mitra Global</h3>
 
             <!-- ROW CENTER -->
             <div class="row justify-content-center g-4">
@@ -293,13 +288,12 @@
                 <!-- Dosen 1 -->
                 <div class="col-6 col-md-2">
                     <div class="card h-100 shadow-sm text-center">
-                        <img src="image/pria.jpg" class="card-img-top" alt="Budi Santoso"
+                        <img src="image/lt.png" class="card-img-top" alt="Lulus Triyaningsih, S.Pd, M.M."
                             style="height: 250px; object-fit: cover;">
                         <div class="card-body">
-                            <h6 class="card-title mb-1">Budi Santoso, S.Kom.,M.Kom</h6>
-                            <small class="text-muted d-block">NIDN: 0123456789</small>
-                            <p class="mb-1 mt-2"><strong>Jabatan:</strong> Dosen Teknik Infromatika</p>
-                            <p class="text-muted mb-0">budi.santoso@kampus.ac.id</p>
+                            <h6 class="card-title mb-1">Lulus Triyaningsih, S.Pd, M.M.</h6>
+                            <p class="mb-1 mt-2"><strong>Jabatan:</strong> Kaprodi Akutansi</p>
+                            <p class="text-muted mb-0">lulus.t@kampus.ac.id</p>
                         </div>
                     </div>
                 </div>
@@ -307,13 +301,12 @@
                 <!-- Dosen 2 -->
                 <div class="col-6 col-md-2">
                     <div class="card h-100 shadow-sm text-center">
-                        <img src="image/wanita.jpg" class="card-img-top" alt="Siti Aminah"
+                        <img src="image/ib.jpg" class="card-img-top" alt="Ida Bagus Prima Widyanta, S.Kom, M.M."
                             style="height: 250px; object-fit: cover;">
                         <div class="card-body">
-                            <h6 class="card-title mb-1">Siti Aminah, M.T</h6>
-                            <small class="text-muted d-block">NIDN: 9876543210</small>
-                            <p class="mb-1 mt-2"><strong>Jabatan:</strong> Dosen Teknik Informatika</p>
-                            <p class="text-muted mb-0">siti.aminah@kampus.ac.id</p>
+                            <h6 class="card-title mb-1">Ida Bagus Prima Widyanta, S.Kom, M.M.</h6>
+                            <p class="mb-1 mt-2"><strong>Jabatan:</strong> Kaprodi Teknik Informatika</p>
+                            <p class="text-muted mb-0">idabagus.pw@kampus.ac.id</p>
                         </div>
                     </div>
                 </div>
@@ -321,31 +314,15 @@
                 <!-- Dosen 3 -->
                 <div class="col-6 col-md-2">
                     <div class="card h-100 shadow-sm text-center">
-                        <img src="image/pria.jpg" class="card-img-top" alt="Ahmad Rizki"
+                        <img src="image/aa.jpg" class="card-img-top" alt="Antonius Ali, S.P., M.P, CLSSGB, IPP."
                             style="height: 250px; object-fit: cover;">
                         <div class="card-body">
-                            <h6 class="card-title mb-1">Ahmad Rizki, M.Kom</h6>
-                            <small class="text-muted d-block">NIDN: 1122334455</small>
-                            <p class="mb-1 mt-2"><strong>Jabatan:</strong> Dosen Akuntansi</p>
-                            <p class="text-muted mb-0">ahmad.rizki@kampus.ac.id</p>
+                            <h6 class="card-title mb-1">Antonius Ali, S.P., M.P, CLSSGB, IPP.</h6>
+                            <p class="mb-1 mt-2"><strong>Jabatan:</strong> Kaprodi Agribisnis</p>
+                            <p class="text-muted mb-0">antonius.ali@kampus.ac.id</p>
                         </div>
                     </div>
                 </div>
-
-                <!-- Dosen 4 -->
-                <div class="col-6 col-md-2">
-                    <div class="card h-100 shadow-sm text-center">
-                        <img src="image/wanita.jpg" class="card-img-top" alt="Ninik Rahayu"
-                            style="height: 250px; object-fit: cover;">
-                        <div class="card-body">
-                            <h6 class="card-title mb-1">Ninik Rahayu, M.T</h6>
-                            <small class="text-muted d-block">NIDN: 98908987</small>
-                            <p class="mb-1 mt-2"><strong>Jabatan:</strong> Dosen Akuntansi</p>
-                            <p class="text-muted mb-0">ninik.rahayu@kampus.ac.id</p>
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </div>
     </section>
@@ -356,25 +333,17 @@
             <h3 class="mb-4 text-center">Berita Terbaru</h3>
 
             <div class="row">
-                @foreach ($beritas as $berita)
-                    <div class="col-md-4 mb-4">
+                @forelse ($beritas as $berita)
+                    <div class="col-md-4 mb-3">
                         <div class="card h-100 shadow-sm">
 
-                            {{-- Foto Berita --}}
-                            @if ($berita->foto)
-                                <img src="{{ asset('storage/'.$berita->foto) }}"
-                                    class="card-img-top"
-                                    style="height:200px; object-fit:cover;"
-                                    alt="{{ $berita->judul }}">
-                            @else
-                                <div class="d-flex align-items-center justify-content-center bg-light"
-                                    style="height:220px;">
-                                    <span class="text-muted">Foto belum tersedia</span>
-                                </div>
-                            @endif
+                            {{-- FOTO BERITA --}}
+                            <img src="{{ $berita->foto ? asset('storage/' . $berita->foto) : asset('no-image.png') }}"
+                                class="card-img-top" alt="{{ $berita->judul }}"
+                                style="height:200px; object-fit:cover;">
 
                             <div class="card-body">
-                                <h6 class="card-title">{{ $berita->judul }}</h6>
+                                <h6>{{ $berita->judul }}</h6>
 
                                 <small class="text-muted">
                                     {{ $berita->created_at->format('d M Y') }}
@@ -384,18 +353,20 @@
                                     {{ Str::limit(strip_tags($berita->konten), 120) }}
                                 </p>
 
-                                <a href="{{ route('berita.detail', $berita->slug) }}"
-                                class="btn btn-sm btn-primary">
+                                <a href="{{ route('berita.detail', $berita->slug) }}" class="btn btn-sm btn-primary">
                                     Baca Selengkapnya
                                 </a>
                             </div>
                         </div>
                     </div>
-                @endforeach
+                @empty
+                    <div class="col-12 text-center">
+                        <p class="text-muted">Belum ada berita terbaru.</p>
+                    </div>
+                @endforelse
             </div>
         </div>
     </section>
-
 
     <style>
         .sponsor-wrapper {
@@ -471,8 +442,11 @@
                 <div class="col-md-6 mb-4">
                     <h4 class="fw-bold mb-3">Lokasi Kampus</h4>
                     <div class="ratio ratio-16x9 shadow rounded">
-                        <iframe src="https://www.google.com/maps?q=-8.471530,114.201931&hl=id&z=16&output=embed"
-                            style="border:0;" allowfullscreen loading="lazy">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3946.4812169470288!2d114.23088917477361!3d-8.452494591587609!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd3ff18589fe8e1%3A0x876467b0a8d793f3!2sPoliteknik%20Mitra%20Global!5e0!3m2!1sid!2sid!4v1766936811162!5m2!1sid!2sid"
+                            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe> style="border:0;" allowfullscreen
+                        loading="lazy">
                         </iframe>
                     </div>
                 </div>
