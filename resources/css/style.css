@@ -28,3 +28,30 @@
         transform: translateX(-2000px);
     }
 }
+
+
+/* HEADER STICKY */
+#headerMain {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+    transition: transform 0.4s ease, box-shadow 0.3s ease;
+}
+
+/* Saat scroll ke bawah */
+.header-hide {
+    transform: translateY(-100%);
+}
+
+/* Saat scroll ke atas */
+.header-show {
+    transform: translateY(0);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+/* Supaya konten tidak ketutup header */
+body {
+    padding-top: 130px;
+    /* sesuaikan tinggi topbar + navbar */
+}

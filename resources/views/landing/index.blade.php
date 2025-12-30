@@ -12,34 +12,60 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 </head>
 
+    <style>
+        #headerMain {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 9999;
+            transition: transform 0.4s ease, box-shadow 0.3s ease;
+        }
+
+        .header-hide {
+            transform: translateY(-100%);
+        }
+
+        .header-show {
+            transform: translateY(0);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+        }
+
+        body {
+            padding-top: 130px;
+        }
+    </style>
+
+
 <body>
 
-    {{-- ================= TOP BAR ================= --}}
-    <div class="bg-primary text-white py-2 small">
-        <div class="container d-flex justify-content-between align-items-center">
-            <div>
-                <i class="bi bi-telephone"></i> (0333) 391 0698
-                &nbsp;&nbsp;
-                <i class="bi bi-envelope"></i> politeknikmg@gmail.com
-            </div>
-            <div>
-                <a href="#" class="text-white me-3"><i class="bi bi-facebook"></i></a>
-                <a href="#" class="text-white me-3"><i class="bi bi-twitter"></i></a>
-                <a href="#" class="text-white me-3"><i class="bi bi-youtube"></i></a>
-                <a href="{{ url('/login') }}" class="text-white me-3" title="Login">
-                    <i class="bi bi-box-arrow-in-right"></i>
-                </a>
+    <header id="headerMain">
+
+        <!-- TOP BAR -->
+        <div class="bg-primary text-white py-2 small">
+            <div class="container d-flex justify-content-between align-items-center">
+                <div>
+                    <i class="bi bi-telephone"></i> (0333) 391 0698
+                    &nbsp;&nbsp;
+                    <i class="bi bi-envelope"></i> politeknikmg@gmail.com
+                </div>
+                <div>
+                    <a href="#" class="text-white me-3"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="text-white me-3"><i class="bi bi-twitter"></i></a>
+                    <a href="#" class="text-white me-3"><i class="bi bi-youtube"></i></a>
+                    <a href="{{ url('/login') }}" class="text-white me-3" title="Login">
+                        <i class="bi bi-box-arrow-in-right"></i>
+                    </a>
+                </div>
             </div>
         </div>
-    </div>
 
-    {{-- ================= NAVBAR ================= --}}
-    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
-        <div class="container">
+        <!-- NAVBAR -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+            <div class="container">
 
-            <a class="navbar-brand d-flex align-items-center">
-                <img src="{{ asset('image/logo.png') }}" height="45" class="me-2" alt="Logo">
-                <strong>POLITEKNIK<br>MITRA GLOBAL</strong>
+                <a class="navbar-brand d-flex align-items-center">
+                    <img src="{{ asset('image/logo.png') }}" height="45" class="me-2" alt="Logo">
+                    <strong>POLITEKNIK<br>MITRA GLOBAL</strong>
                 </a>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain">
@@ -53,14 +79,8 @@
                             <a class="nav-link active" href="/">Home</a>
                         </li>
 
-                        <li class="nav-item dropdown">
-                            <a class="nav-link active" href="#tentang-kami">
-                                Tentang Kami
-                            </a>
-                            {{-- <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Profil</a></li>
-                                <li><a class="dropdown-item" href="#">Visi & Misi</a></li>
-                            </ul> --}}
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#tentang-kami">Tentang Kami</a>
                         </li>
 
                         <li class="nav-item dropdown">
@@ -82,26 +102,22 @@
                             <a class="nav-link active" href="#berita">Artikel Berita</a>
                         </li>
 
-                        <li class="nav-item dropdown">
-                            <a class="nav-link active" href="#kerjasama">
-                                Mitra Kerjasama
-                            </a>
-                            {{-- <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Industri</a></li>
-                                <li><a class="dropdown-item" href="#">Akademik</a></li>
-                            </ul> --}}
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#kerjasama">Mitra Kerjasama</a>
                         </li>
                     </ul>
 
                     <a href="https://docs.google.com/forms/d/e/1FAIpQLSedZeRdjNqHiqwzjlP6SfhMsz3JLrJkZfoEUkBM03KDPOWHJQ/viewform"
-                        target="_blank" rel="noopener noreferrer" class="btn btn-primary text-white fw-semibold px-4">
+                        target="_blank" rel="noopener noreferrer"
+                        class="btn btn-primary text-white fw-semibold px-4">
                         Pendaftaran
                     </a>
-
                 </div>
+            </div>
+        </nav>
 
-        </div>
-    </nav>
+    </header>
+
 
     {{-- ================= HERO ================= --}}
     <section class="hero-section text-white text-center d-flex align-items-center">
@@ -524,6 +540,28 @@
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        let lastScrollTop = 0;
+        const header = document.getElementById("headerMain");
+
+        window.addEventListener("scroll", function () {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+            if (scrollTop > lastScrollTop && scrollTop > 120) {
+                // Scroll ke bawah → sembunyi
+                header.classList.remove("header-show");
+                header.classList.add("header-hide");
+            } else {
+                // Scroll ke atas → muncul
+                header.classList.remove("header-hide");
+                header.classList.add("header-show");
+            }
+
+            lastScrollTop = scrollTop;
+        });
+    </script>
+
 </body>
 
 </html>
