@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Prodi;
 use App\Models\Berita;
 use App\Models\Prestasi;
+use App\Models\Pegawai;
 use App\Models\User;
 
 class DashboardController extends Controller

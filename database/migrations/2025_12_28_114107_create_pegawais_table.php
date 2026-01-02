@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('nama', 50);
             $table->string('nidn', 50);
             $table->string('jabatan', 50);
-            $table->string('email', 100);
+            $table->string('email', 100);       
             $table->string('nohp', 20);
             $table->text('foto')->nullable();
             $table->timestamps();

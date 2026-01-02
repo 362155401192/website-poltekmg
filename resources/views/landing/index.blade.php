@@ -296,52 +296,64 @@
     {{-- ================= DATA DOSEN ================= --}}
     <section class="py-5">
         <div class="container">
-            <h3 class="mb-4 text-center">Kaprodi Politeknik Mitra Global</h3>
+            <h3 class="mb-4 text-center">Pegawai Politeknik Mitra Global</h3>
 
-            <!-- ROW CENTER -->
             <div class="row justify-content-center g-4">
+                @forelse ($pegawais as $pegawai)
+                    <div class="col-6 col-md-3 col-lg-2">
+                        <div class="card h-100 shadow-sm text-center">
 
-                <!-- Dosen 1 -->
-                <div class="col-6 col-md-2">
-                    <div class="card h-100 shadow-sm text-center">
-                        <img src="image/lt.png" class="card-img-top" alt="Lulus Triyaningsih, S.Pd, M.M."
-                            style="height: 250px; object-fit: cover;">
-                        <div class="card-body">
-                            <h6 class="card-title mb-1">Lulus Triyaningsih, S.Pd, M.M.</h6>
-                            <p class="mb-1 mt-2"><strong>Jabatan:</strong> Kaprodi Akutansi</p>
-                            <p class="text-muted mb-0">lulus.t@kampus.ac.id</p>
+                            {{-- FOTO --}}
+                            @if ($pegawai->foto)
+                                <img src="{{ asset('storage/' . $pegawai->foto) }}"
+                                    class="card-img-top"
+                                    alt="{{ $pegawai->nama }}"
+                                    style="height:220px; object-fit:cover;">
+                            @else
+                                <img src="{{ asset('image/default-dosen.jpg') }}"
+                                    class="card-img-top"
+                                    alt="Foto Pegawai"
+                                    style="height:220px; object-fit:cover;">
+                            @endif
+
+                            <div class="card-body p-3">
+                                <h6 class="card-title mb-1">
+                                    {{ $pegawai->nama }}
+                                </h6>
+
+                                <p class="mb-1 small">
+                                    <strong>NIDN:</strong> {{ $pegawai->nidn }}
+                                </p>
+
+                                <p class="mb-1 small">
+                                    <strong>Jabatan:</strong> {{ $pegawai->jabatan }}
+                                </p>
+
+                                <p class="mb-1 small">
+                                    <strong>No. HP:</strong>
+                                    <a href="https://wa.me/62{{ ltrim($pegawai->nohp, '0') }}"
+                                    target="_blank"
+                                    class="text-decoration-none">
+                                        {{ $pegawai->nohp }}
+                                    </a>
+                                </p>
+
+                                <p class="text-muted small mb-0">
+                                    {{ $pegawai->email }}
+                                </p>
+                            </div>
                         </div>
                     </div>
-                </div>
-
-                <!-- Dosen 2 -->
-                <div class="col-6 col-md-2">
-                    <div class="card h-100 shadow-sm text-center">
-                        <img src="image/ib.jpg" class="card-img-top" alt="Ida Bagus Prima Widyanta, S.Kom, M.M."
-                            style="height: 250px; object-fit: cover;">
-                        <div class="card-body">
-                            <h6 class="card-title mb-1">Ida Bagus Prima Widyanta, S.Kom, M.M.</h6>
-                            <p class="mb-1 mt-2"><strong>Jabatan:</strong> Kaprodi Teknik Informatika</p>
-                            <p class="text-muted mb-0">idabagus.pw@kampus.ac.id</p>
-                        </div>
+                @empty
+                    <div class="col-12 text-center">
+                        <p class="text-muted">Data pegawai belum tersedia</p>
                     </div>
-                </div>
-
-                <!-- Dosen 3 -->
-                <div class="col-6 col-md-2">
-                    <div class="card h-100 shadow-sm text-center">
-                        <img src="image/aa.jpg" class="card-img-top" alt="Antonius Ali, S.P., M.P, CLSSGB, IPP."
-                            style="height: 250px; object-fit: cover;">
-                        <div class="card-body">
-                            <h6 class="card-title mb-1">Antonius Ali, S.P., M.P, CLSSGB, IPP.</h6>
-                            <p class="mb-1 mt-2"><strong>Jabatan:</strong> Kaprodi Agribisnis</p>
-                            <p class="text-muted mb-0">antonius.ali@kampus.ac.id</p>
-                        </div>
-                    </div>
-                </div>
+                @endforelse
             </div>
         </div>
     </section>
+
+
 
     {{-- ================= BERITA ================= --}}
     <section id="berita" class="bg-light py-5">
