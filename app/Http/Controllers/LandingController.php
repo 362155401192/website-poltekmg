@@ -24,4 +24,9 @@ class LandingController extends Controller
     {
         return view('landing.berita-detail', compact('berita'));
     }
+
+    public function detailProdi(Prodi $prodi)
+    {
+        return view('landing.prodi-detail', compact('prodi'));
+    }
 }

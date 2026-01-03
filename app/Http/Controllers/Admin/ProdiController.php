@@ -86,4 +86,6 @@ class ProdiController extends Controller
 
         return back()->with('success', 'Prodi berhasil dihapus');
     }
+
+    
 }

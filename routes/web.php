@@ -44,3 +44,20 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
 Route::get('/', [LandingController::class, 'index'])->name('landing');
 Route::get('/berita/{berita:slug}', [LandingController::class, 'detailBerita'])
     ->name('berita.detail');
+
+Route::get('/program-studi/{prodi:slug}', [LandingController::class, 'detailProdi'])
+    ->name('prodi.detail');
+
+
+Route::get('/visi-misi', [TentangController::class, 'visiMisi'])->name('visi.misi');
+
+
+
+
+Route::get('/visi-misi', function () {
+    return view('tentang.visi-misi');
+})->name('visi.misi');
+
+Route::get('/sejarah', function () {
+    return view('tentang.sejarah');
+})->name('sejarah');
