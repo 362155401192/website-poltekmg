@@ -88,6 +88,57 @@
             transform: scale(1.08);
         }
 
+        /* BERITA CARD */
+        .berita-card {
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+            transition: all .3s ease;
+        }
+
+        .berita-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+
+        /* IMAGE */
+        .berita-img-wrapper {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .berita-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform .4s ease;
+        }
+
+        .berita-card:hover img {
+            transform: scale(1.1);
+        }
+
+        /* DATE BADGE */
+        .berita-date {
+            position: absolute;
+            bottom: 12px;
+            left: 12px;
+            background: rgba(0,0,0,.7);
+            color: #fff;
+            font-size: 12px;
+            padding: 6px 10px;
+            border-radius: 8px;
+        }
+
+        /* TITLE */
+        .berita-title {
+            font-size: 16px;
+            line-height: 1.4;
+            margin-bottom: 8px;
+        }
+
+
     </style>
 </head>
 
@@ -388,29 +439,50 @@
 </section>
 
 <!-- BERITA -->
-<section id="berita" class="py-5">
+<section id="berita" class="py-5 bg-light">
     <div class="container">
-        <h3 class="mb-4 text-center">Berita Terbaru</h3>
+        <div class="text-center mb-5">
+            <h3 class="fw-bold">Berita Terbaru</h3>
+            <p class="text-muted">Informasi dan kegiatan terbaru kampus</p>
+        </div>
+
         <div class="row g-4">
             @forelse ($beritas as $berita)
                 <div class="col-12 col-sm-6 col-md-4">
-                    <div class="card h-100 shadow-sm">
-                        <img src="{{ $berita->foto ? asset('storage/' . $berita->foto) : asset('no-image.png') }}"
-                             class="card-img-top img-fluid" style="height:200px; object-fit:cover;" alt="{{ $berita->judul }}">
-                        <div class="card-body">
-                            <h6>{{ $berita->judul }}</h6>
-                            <small class="text-muted">{{ $berita->created_at->format('d M Y') }}</small>
-                            <p class="mt-2">{{ Str::limit(strip_tags($berita->konten), 120) }}</p>
-                            <a href="{{ route('berita.detail', $berita->slug) }}" class="btn btn-sm btn-primary">Baca Selengkapnya</a>
+                    <div class="card berita-card h-100 border-0">
+                        <div class="berita-img-wrapper">
+                            <img src="{{ $berita->foto ? asset('storage/' . $berita->foto) : asset('no-image.png') }}"
+                                 alt="{{ $berita->judul }}">
+                            <span class="berita-date">
+                                {{ $berita->created_at->format('d M Y') }}
+                            </span>
+                        </div>
+
+                        <div class="card-body d-flex flex-column">
+                            <h6 class="fw-semibold berita-title">
+                                {{ $berita->judul }}
+                            </h6>
+
+                            <p class="text-muted small flex-grow-1">
+                                {{ Str::limit(strip_tags($berita->konten), 120) }}
+                            </p>
+
+                            <a href="{{ route('berita.detail', $berita->slug) }}"
+                               class="btn btn-outline-primary btn-sm align-self-start">
+                                Baca Selengkapnya →
+                            </a>
                         </div>
                     </div>
                 </div>
             @empty
-                <div class="col-12 text-center"><p class="text-muted">Belum ada berita terbaru.</p></div>
+                <div class="col-12 text-center">
+                    <p class="text-muted">Belum ada berita terbaru.</p>
+                </div>
             @endforelse
         </div>
     </div>
 </section>
+
 
 <!-- MITRA/SPONSOR -->
 <section id="kerjasama" class="py-5 bg-light overflow-hidden">
