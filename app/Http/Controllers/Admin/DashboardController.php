@@ -9,6 +9,7 @@ use App\Models\Prodi;
 use App\Models\Berita;
 use App\Models\Prestasi;
 use App\Models\Pegawai;
+use App\Models\Gallery;
 use App\Models\User;
 
 class DashboardController extends Controller
@@ -19,6 +20,7 @@ class DashboardController extends Controller
             'totalProdi'     => Prodi::count(),
             'totalBerita'    => Berita::count(),
             'totalPrestasi'  => Prestasi::count(),
+            'totalGallery'  => Gallery::count(),
             'totalUser'      => User::count(),
         ]);
     }
