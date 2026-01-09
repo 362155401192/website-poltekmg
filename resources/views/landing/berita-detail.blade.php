@@ -1,26 +1,49 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <title>{{ $berita->judul }}</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
+@extends('layouts.app')
 
-<div class="container py-5">
-    <a href="{{ url('/') }}" class="btn btn-secondary mb-3">← Kembali</a>
+@section('title', $berita->judul)
 
-    <h2>{{ $berita->judul }}</h2>
-    <small class="text-muted">
-        {{ $berita->created_at->format('d M Y') }}
-    </small>
+@section('content')
+<<div class="container pt-1 pb-5">
 
-    <hr>
+    <div class="row justify-content-center">
+        <div class="col-lg-9">
 
-    <div>
-        {!! $berita->konten !!}
+            <!-- CARD BERITA -->
+            <div class="card border-0 shadow-sm">
+                <div class="card-body p-4 p-md-5">
+
+                    <!-- META -->
+                    <div class="mb-3 text-muted small">
+                        <i class="bi bi-calendar-event"></i>
+                        {{ $berita->created_at->format('d M Y') }}
+                    </div>
+
+                    <!-- JUDUL -->
+                    <h1 class="fw-bold mb-4">
+                        {{ $berita->judul }}
+                    </h1>
+
+                    <!-- FOTO -->
+                    @if(!empty($berita->foto))
+                        <div class="mb-4">
+                            <img src="{{ asset('storage/'.$berita->foto) }}"
+                                 class="img-fluid rounded"
+                                 alt="{{ $berita->judul }}">
+                        </div>
+                    @endif
+
+                    <hr class="mb-4">
+
+                    <!-- KONTEN -->
+                    <div class="berita-content fs-5" style="line-height:1.9">
+                        {!! $berita->konten !!}
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
     </div>
-</div>
 
-</body>
-</html>
+</div>
+@endsection

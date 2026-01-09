@@ -1,66 +1,56 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <title>{{ $prodi->nama }}</title>
+@extends('layouts.app')
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+@section('title', $prodi->nama)
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+@section('content')
+<div class="container pt-3 pb-5" style="max-width: 1000px; margin-top:-20px">
 
-    <style>
-        body {
-            font-size: 18px;
-            line-height: 1.8;
-        }
-        h2 {
-            font-size: 2.4rem;
-        }
-        .meta-text {
-            font-size: 1.1rem;
-        }
-        .content-text p {
-            margin-bottom: 1rem;
-        }
-        .prodi-image {
-            max-height: 260px;       /* diperkecil */
-            object-fit: cover;
-            width: 100%;
-        }
-    </style>
-</head>
-<body>
+    <!-- HEADER PRODI -->
+    <div class="card border-0 shadow-sm mb-4">
+        <div class="card-body p-4 p-md-5">
 
-<div class="container py-5" style="max-width: 900px;">
+            <div class="row align-items-center g-4">
+                <div class="col-md-8">
+                    <span class="badge bg-primary mb-2 px-3 py-2 fs-6">
+                        PROGRAM STUDI
+                    </span>
 
-    <a href="{{ url()->previous() }}" class="btn btn-secondary mb-4">
-        ← Kembali
-    </a>
+                    <h1 class="fw-bold mb-2">
+                        {{ $prodi->nama }}
+                    </h1>
 
-    {{-- JUDUL --}}
-    <h2 class="fw-bold mb-2">{{ $prodi->nama }}</h2>
+                    <p class="text-muted fs-5 mb-0">
+                        Kode Program Studi:
+                        <strong>{{ $prodi->kode }}</strong>
+                    </p>
+                </div>
 
-    {{-- META --}}
-    <div class="meta-text text-muted mb-3">
-        Kode Program Studi: {{ $prodi->kode }}
+                @if ($prodi->foto)
+                <div class="col-md-4 text-center">
+                    <img src="{{ asset('storage/' . $prodi->foto) }}"
+                         class="img-fluid rounded shadow-sm"
+                         style="max-height:220px; object-fit:cover;">
+                </div>
+                @endif
+            </div>
+
+        </div>
     </div>
 
-    <hr class="mb-4">
+    <!-- DESKRIPSI -->
+    <div class="card border-0 shadow-sm">
+        <div class="card-body p-4 p-md-5">
 
-    {{-- FOTO (diperkecil & rapi) --}}
-    @if ($prodi->foto)
-        <div class="text-center mb-4">
-            <img src="{{ asset('storage/' . $prodi->foto) }}"
-                 class="img-fluid rounded prodi-image">
+            <h4 class="fw-bold mb-3">
+                <i class="bi bi-book"></i> Deskripsi Program Studi
+            </h4>
+
+            <div class="fs-5" style="line-height:1.9">
+                {!! nl2br(e($prodi->deskripsi)) !!}
+            </div>
+
         </div>
-    @endif
-
-    {{-- KONTEN --}}
-    <div class="content-text">
-        {!! nl2br(e($prodi->deskripsi)) !!}
     </div>
 
 </div>
-
-</body>
-</html>
+@endsection

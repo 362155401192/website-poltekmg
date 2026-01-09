@@ -58,6 +58,36 @@
         .sponsor-track { display: flex; gap: 60px; width: max-content; animation: sponsorLoop 25s linear infinite; }
         .sponsor-track img { height: 50px; object-fit: contain; }
         @keyframes sponsorLoop { 0% {transform: translateX(0);} 100% {transform: translateX(-50%);} }
+
+        /* PROGRAM STUDI CARD */
+        .prodi-card {
+            border-radius: 16px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .prodi-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+        }
+
+        /* GAMBAR */
+        .prodi-img-wrapper {
+            height: 220px;
+            overflow: hidden;
+        }
+
+        .prodi-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .prodi-card:hover img {
+            transform: scale(1.08);
+        }
+
     </style>
 </head>
 
@@ -77,7 +107,7 @@
                 <a href="#" class="text-white me-3"><i class="bi bi-facebook"></i></a>
                 <a href="#" class="text-white me-3"><i class="bi bi-twitter"></i></a>
                 <a href="#" class="text-white me-3"><i class="bi bi-youtube"></i></a>
-                <a href="{{ url('/login') }}" class="text-white me-3" title="Login"><i class="bi bi-box-arrow-in-right"></i></a>
+                {{-- <a href="{{ url('/login') }}" class="text-white me-3" title="Login"><i class="bi bi-box-arrow-in-right"></i></a> --}}
             </div>
         </div>
     </div>
@@ -98,18 +128,18 @@
                 <ul class="navbar-nav mx-auto gap-lg-3 flex-column flex-lg-row text-center text-lg-start">
                     <li class="nav-item"><a class="nav-link active" href="/">Home</a></li>
                     <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown">
-                        Tentang Kami
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <a class="dropdown-item" href="{{ route('visi.misi') }}">Visi & Misi</a>
-                        </li>
-                        <li>
-                            <a class="dropdown-item" href="{{ route('sejarah') }}">Sejarah</a>
-                        </li>
-                    </ul>
-                </li>
+                        <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown">
+                            Tentang Kami
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item" href="{{ route('visi.misi') }}">Visi & Misi</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="{{ route('sejarah') }}">Sejarah</a>
+                            </li>
+                        </ul>
+                    </li>
 
 
                     <li class="nav-item dropdown">
@@ -125,8 +155,17 @@
                         </ul>
                     </li>
 
-                    <li class="nav-item"><a class="nav-link active" href="#berita">Artikel Berita</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="#kerjasama">Mitra Kerjasama</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{{ url('/#berita') }}">
+                            Artikel Berita
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{{ url('/#kerjasama') }}">
+                            Mitra Kerjasama
+                        </a>
+                    </li>
+
                 </ul>
                 <a href="https://docs.google.com/forms/d/e/1FAIpQLSedZeRdjNqHiqwzjlP6SfhMsz3JLrJkZfoEUkBM03KDPOWHJQ/viewform" target="_blank" class="btn btn-primary text-white fw-semibold px-4 mt-2 mt-lg-0">
                     Pendaftaran
@@ -148,80 +187,179 @@
 </section>
 
 <!-- TENTANG KAMI -->
-<section id="tentang-kami" class="py-5">
+<section id="tentang-kami" class="py-5 bg-light">
     <div class="container">
-        <div class="row align-items-center">
-            <div class="col-md-6 mb-4 mb-md-0">
-                <h3 class="fw-bold mb-3">Tentang Kami</h3>
-                <p class="text-muted"><strong>Politeknik Mitra Global</strong> adalah institusi pendidikan tinggi vokasi yang berfokus pada pengembangan keterampilan dan kompetensi mahasiswa.</p>
-                <ul class="list-unstyled">
-                    <li class="mb-2"><i class="bi bi-check-circle-fill text-primary"></i> Pendidikan berbasis praktik</li>
-                    <li class="mb-2"><i class="bi bi-check-circle-fill text-primary"></i> Dosen profesional</li>
-                    <li class="mb-2"><i class="bi bi-check-circle-fill text-primary"></i> Kerja sama industri</li>
+        <div class="row align-items-center g-4">
+
+            <!-- TEKS -->
+            <div class="col-md-6">
+                <span class="text-primary fw-semibold text-uppercase small">
+                    Profil Institusi
+                </span>
+
+                <h2 class="fw-bold mt-2 mb-3">
+                    Politeknik Mitra Global
+                </h2>
+
+                <p class="text-muted">
+                    <strong>Politeknik Mitra Global</strong> merupakan perguruan tinggi vokasi
+                    yang berfokus pada pengembangan keterampilan praktis dan
+                    kompetensi mahasiswa agar siap bersaing di dunia industri.
+                </p>
+
+                <ul class="list-unstyled mt-3">
+                    <li class="mb-2">
+                        <i class="bi bi-check-circle-fill text-primary me-2"></i>
+                        Pendidikan berbasis praktik & industri
+                    </li>
+                    <li class="mb-2">
+                        <i class="bi bi-check-circle-fill text-primary me-2"></i>
+                        Dosen profesional & berpengalaman
+                    </li>
+                    <li class="mb-2">
+                        <i class="bi bi-check-circle-fill text-primary me-2"></i>
+                        Kerja sama industri & program magang
+                    </li>
                 </ul>
-                <button type="button" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#modalTentangKami">Baca Selengkapnya</button>
+
+                <button
+                    class="btn btn-primary mt-3 px-4"
+                    data-bs-toggle="modal"
+                    data-bs-target="#modalTentangKami">
+                    Selengkapnya
+                </button>
             </div>
+
+            <!-- GAMBAR -->
             <div class="col-md-6 text-center">
-                <img src="image/pmg1.jpeg" alt="Politeknik Mitra Global" class="img-fluid rounded shadow" style="max-height:250px; object-fit:cover;">
+                <img src="image/pmg1.jpeg"
+                     alt="Politeknik Mitra Global"
+                     class="img-fluid rounded-4 shadow"
+                     style="max-height:280px; object-fit:cover;">
             </div>
+
         </div>
     </div>
 </section>
+
 
 <!-- MODAL TENTANG KAMI -->
 <div class="modal fade" id="modalTentangKami" tabindex="-1">
     <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title fw-bold">Tentang Politeknik Mitra Global</h5>
+        <div class="modal-content rounded-4 border-0 shadow">
+
+            <div class="modal-header border-0">
+                <h5 class="modal-title fw-bold">
+                    Tentang Politeknik Mitra Global
+                </h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
+
             <div class="modal-body">
-                <div class="row align-items-center">
-                    <div class="col-md-5 mb-3 mb-md-0 text-center">
-                        <img src="image/pmg1.jpeg" alt="Politeknik Mitra Global" class="img-fluid rounded shadow">
+                <div class="row g-4 align-items-center">
+
+                    <div class="col-md-5 text-center">
+                        <img src="image/pmg1.jpeg"
+                             alt="Politeknik Mitra Global"
+                             class="img-fluid rounded-4 shadow-sm">
                     </div>
+
                     <div class="col-md-7">
-                        <p><strong>Politeknik Mitra Global</strong> merupakan perguruan tinggi vokasi fokus pendidikan berbasis praktik & industri.</p>
-                        <p>Dosen profesional, kurikulum adaptif, dan kerja sama industri luas.</p>
-                        <p>VISI :</p>
-                        <p>MISI :</p>
-                        <ul>
-                            <li>Pendidikan berbasis praktik</li>
-                            <li>Tenaga pengajar profesional</li>
-                            <li>Kerja sama dunia industri</li>
-                            <li>Program magang & penyaluran kerja</li>
+                        <p>
+                            <strong>Politeknik Mitra Global</strong> adalah institusi
+                            pendidikan tinggi vokasi yang menekankan pembelajaran
+                            berbasis praktik dan kebutuhan industri.
+                        </p>
+
+                        <p>
+                            Dengan dukungan tenaga pengajar profesional, kurikulum adaptif,
+                            serta jejaring industri yang luas, Politeknik Mitra Global
+                            berkomitmen mencetak lulusan yang kompeten, inovatif,
+                            dan siap kerja.
+                        </p>
+
+                        <ul class="mt-3">
+                            <li>Fokus keterampilan terapan</li>
+                            <li>Program magang industri</li>
+                            <li>Link & match dunia kerja</li>
+                            <li>Pembinaan karier mahasiswa</li>
                         </ul>
                     </div>
+
                 </div>
             </div>
-            <div class="modal-footer"><button class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button></div>
+
+            <div class="modal-footer border-0">
+                <button class="btn btn-secondary px-4" data-bs-dismiss="modal">
+                    Tutup
+                </button>
+            </div>
+
         </div>
     </div>
 </div>
 
+
 <!-- PROGRAM STUDI -->
-<section class="py-5">
+<section class="py-5 bg-light" id="program-studi">
     <div class="container">
-        <h3 class="mb-4 text-center">Program Studi</h3>
+
+        <!-- JUDUL -->
+        <div class="text-center mb-5">
+            <span class="text-primary fw-semibold text-uppercase small">
+                Akademik
+            </span>
+            <h2 class="fw-bold mt-2">Program Studi</h2>
+            <p class="text-muted">
+                Pilihan program studi unggulan yang dirancang sesuai kebutuhan industri
+            </p>
+        </div>
+
         <div class="row g-4">
+
             @foreach ($prodis as $prodi)
-                <div class="col-12 col-sm-6 col-md-4">
-                    <div class="card h-100 shadow-sm text-center">
-                        <img src="{{ $prodi->foto ? asset('storage/' . $prodi->foto) : asset('image/default-prodi.jpg') }}"
-                             class="card-img-top img-fluid" style="height:200px; object-fit:cover;" alt="{{ $prodi->nama }}">
-                        <div class="card-body">
-                            <h5 class="fw-bold">{{ $prodi->nama }}</h5>
-                            <small class="text-muted d-block mb-2">{{ $prodi->kode }}</small>
-                            <p class="text-muted">{{ Str::limit($prodi->deskripsi, 100) }}</p>
-                            <a href="{{ route('prodi.detail', $prodi->slug) }}" class="btn btn-sm btn-primary">Baca Selengkapnya</a>
+                <div class="col-12 col-sm-6 col-lg-4">
+
+                    <div class="card prodi-card h-100 border-0 shadow-sm">
+
+                        <!-- GAMBAR -->
+                        <div class="prodi-img-wrapper">
+                            <img src="{{ $prodi->foto ? asset('storage/' . $prodi->foto) : asset('image/default-prodi.jpg') }}"
+                                 alt="{{ $prodi->nama }}"
+                                 class="img-fluid">
                         </div>
+
+                        <!-- KONTEN -->
+                        <div class="card-body text-center d-flex flex-column">
+
+                            <h5 class="fw-bold mb-1">
+                                {{ $prodi->nama }}
+                            </h5>
+
+                            <small class="text-primary fw-semibold mb-2">
+                                {{ $prodi->kode }}
+                            </small>
+
+                            <p class="text-muted small flex-grow-1">
+                                {{ Str::limit($prodi->deskripsi, 110) }}
+                            </p>
+
+                            <a href="{{ route('prodi.detail', $prodi->slug) }}"
+                               class="btn btn-outline-primary btn-sm mt-2 px-4">
+                                Detail Program
+                            </a>
+
+                        </div>
+
                     </div>
+
                 </div>
             @endforeach
+
         </div>
     </div>
 </section>
+
 
 <!-- DATA DOSEN -->
 <section class="py-5 bg-light">
