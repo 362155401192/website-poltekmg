@@ -11,6 +11,13 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 
+    <!-- Lightbox CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" rel="stylesheet">
+
+    <!-- Lightbox JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
+
+
     <style>
         /* HEADER FIXED */
         #headerMain {
@@ -137,6 +144,30 @@
             line-height: 1.4;
             margin-bottom: 8px;
         }
+
+        /* GALLERY */
+        .gallery-item {
+            position: relative;
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-weight: 600;
+            opacity: 0;
+            transition: 0.3s;
+            border-radius: 8px;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
 
 
     </style>
@@ -482,6 +513,49 @@
         </div>
     </div>
 </section>
+
+<!-- GALLERY -->
+<section id="gallery" class="py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h3 class="fw-bold">Galeri Kegiatan</h3>
+            <p class="text-muted">Dokumentasi kegiatan dan momen kampus</p>
+        </div>
+
+        <div class="row g-3">
+            @forelse ($galleries as $gallery)
+                <div class="col-6 col-md-4 col-lg-3">
+                    <a href="{{ asset('storage/' . $gallery->foto) }}"
+                       class="gallery-item d-block text-decoration-none"
+                       data-lightbox="kampus-gallery"
+                       data-title="{{ $gallery->judul }}">
+
+                        <div class="position-relative">
+                            <img src="{{ asset('storage/' . $gallery->foto) }}"
+                                 alt="{{ $gallery->judul }}"
+                                 class="img-fluid rounded">
+
+                            <div class="gallery-overlay">
+                                <span>🔍 Lihat</span>
+                            </div>
+                        </div>
+
+                        <!-- JUDUL -->
+                        <div class="mt-2 text-center fw-semibold text-dark">
+                            {{ $gallery->judul }}
+                        </div>
+                    </a>
+                </div>
+            @empty
+                <div class="col-12 text-center">
+                    <p class="text-muted">Belum ada foto di galeri.</p>
+                </div>
+            @endforelse
+        </div>
+    </div>
+</section>
+
+
 
 
 <!-- MITRA/SPONSOR -->

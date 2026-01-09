@@ -15,6 +15,15 @@
             background-color: #f1f1f1;
             border-radius: 6px;
         }
+
+        .foto-galeri-admin {
+            width: 70px;
+            height: 70px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+
     </style>
 
 
@@ -87,6 +96,13 @@
                             <i class="bi bi-people-fill me-2"></i> Data Pegawai
                         </a>
                     </li>
+
+                    <li class="nav-item">
+                        <a href="{{ route('admin.galeri.index') }}" class="nav-link text-dark">
+                            <i class="bi bi-images me-2"></i> Data Galeri
+                        </a>
+                    </li>
+
 
                     <!-- CRUD USER -->
                     <li class="nav-item mt-2">

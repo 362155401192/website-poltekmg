@@ -6,6 +6,7 @@ use App\Models\Prodi;
 use App\Models\Berita;
 use App\Models\Prestasi;
 use App\Models\Pegawai;
+use App\Models\Gallery;
 
 class LandingController extends Controller
 {
@@ -14,9 +15,8 @@ class LandingController extends Controller
         return view('landing.index', [
             'prodis'   => Prodi::orderBy('nama')->get(),
             'beritas'  => Berita::latest()->limit(6)->get(),
-
-            // ✅ AMBIL SEMUA PEGAWAI
             'pegawais' => Pegawai::orderBy('nama')->get(),
+            'galleries' => Gallery::latest()->get(),
         ]);
     }
 

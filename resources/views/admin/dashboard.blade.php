@@ -33,6 +33,15 @@
     </div>
 
     <div class="col-md-3">
+        <div class="card text-white bg-warning mb-3">
+            <div class="card-body">
+                <h5>Galery</h5>
+                <h2>{{ $totalGallery }}</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
         <div class="card text-white bg-dark mb-3">
             <div class="card-body">
                 <h5>User</h5>

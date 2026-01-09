@@ -7,12 +7,13 @@ use App\Http\Controllers\Admin\ProdiController;
 use App\Http\Controllers\Admin\BeritaController;
 use App\Http\Controllers\Admin\PrestasiController;
 use App\Http\Controllers\Admin\PegawaiController;
+use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\UsersController;
 use App\Http\Controllers\LandingController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::get('/dashboard', function () {
     return redirect('/admin/dashboard');
@@ -37,6 +38,7 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
 
     Route::resource('prestasi', PrestasiController::class);
     Route::resource('pegawai', PegawaiController::class);
+    Route::resource('galeri', GalleryController::class);
     Route::resource('users', UsersController::class);
     
 });
@@ -49,7 +51,7 @@ Route::get('/program-studi/{prodi:slug}', [LandingController::class, 'detailProd
     ->name('prodi.detail');
 
 
-Route::get('/visi-misi', [TentangController::class, 'visiMisi'])->name('visi.misi');
+// Route::get('/visi-misi', [TentangController::class, 'visiMisi'])->name('visi.misi');
 
 
 
